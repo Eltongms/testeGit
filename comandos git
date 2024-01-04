@@ -1,7 +1,36 @@
 
 HEAD é um apontamento para o nódulo atualmente ativo (arquivos em que está trabalhando).
 
-O estado normal do git é HEAD -> main -> C2. Mas é possível soltar a cabeça (detached) com git checkout C2
+O estado normal do git é 
+
+HEAD -> main -> C2. 
+Mas é possível soltar a cabeça (detached) com 
+
+git checkout C2
 ficando HEAD -> C2  e main -> C2
 
+
+
+
+É possível mudar um ramo de lugar. O ramo é apenas um ponteiro que indica um nódulo especifico.
+
+git branch -f main HEAD^3
+
+
+
+Revertendo mudanças
+
+quando local pode ser usado 
+git reset HEAD~1
+
+quando remoto 
+git revert HEAD
+
+
+para criar um branch usa-se
+git checkout -b nomebranch
+
+a partir do git 2.23 pode usar o comando
+git switch nomebranch   para tracar
+git switch -c nomebranch para criar.  
 
