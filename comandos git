@@ -1,1 +1,7 @@
-asd
+
+HEAD é um apontamento para o nódulo atualmente ativo (arquivos em que está trabalhando).
+
+O estado normal do git é HEAD -> main -> C2. Mas é possível soltar a cabeça (detached) com git checkout C2
+ficando HEAD -> C2  e main -> C2
+
+
