@@ -40,4 +40,7 @@ Exibir
 git log --oneline (faz cada comiit ocupa uma linha) --all (exibe de todos os branch) --decorate (informa em qual branch está cada commit) --graph (faz um grafico)
 
 
+Descritivos 
+(main) é local
+(origin/main) é local onde o push foi atualizado pela ultima vez
 
