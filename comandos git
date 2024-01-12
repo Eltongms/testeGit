@@ -34,3 +34,10 @@ a partir do git 2.23 pode usar o comando
 git switch nomebranch   para tracar
 git switch -c nomebranch para criar.  
 
+
+Exibir 
+
+git log --oneline (faz cada comiit ocupa uma linha) --all (exibe de todos os branch) --decorate (informa em qual branch está cada commit) --graph (faz um grafico)
+
+
+
