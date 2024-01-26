@@ -40,6 +40,20 @@ Exibir
 git log --oneline (faz cada comiit ocupa uma linha) --all (exibe de todos os branch) --decorate (informa em qual branch está cada commit) --graph (faz um grafico)
 
 
+CHECKANDO CONFIGURAÇÃO 
+
+# para usar ssh o endereço precisa estar dessa forma
+git remote  -v
+origin	git@github.com:Eltongms/testeGit.git (fetch)
+origin	git@github.com:Eltongms/testeGit.git (push)
+
+# caso não esteja é preciso corrigier usando:
+git remote set-url --add origin git@github.com:Eltongms/testeGit.git
+
+
+
+
+
 CLONANDO
 
 git clone https://github.com/Eltongms/testeGit.git
@@ -48,4 +62,10 @@ git clone https://github.com/Eltongms/testeGit.git
 
 git branch -a
 git checkout -b nomebranch origin/nomebranch   # vai criar uma branch local baseado no branch remoto
+
+
+ENVIANDO DE VOLTA
+
+ 
+ git push origin reattach
 
