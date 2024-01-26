@@ -40,4 +40,12 @@ Exibir
 git log --oneline (faz cada comiit ocupa uma linha) --all (exibe de todos os branch) --decorate (informa em qual branch está cada commit) --graph (faz um grafico)
 
 
+CLONANDO
+
+git clone https://github.com/Eltongms/testeGit.git
+
+- Acessando branch remoto
+
+git branch -a
+git checkout -b nomebranch origin/nomebranch   # vai criar uma branch local baseado no branch remoto
 
