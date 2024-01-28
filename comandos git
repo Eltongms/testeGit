@@ -78,7 +78,7 @@ b1 -> b2(bugFix)
 
 git merge bugFix
 
-m1 -> m2 -> m3 -> mb4(main*)
+m1 -> m2 -> m3 -> m3b2(main*)
 b1 -> b2(bugFix)
 
 git checkout bugFix; git merge main;
@@ -93,18 +93,21 @@ b1 -> b2
 
 GIT REBASE
 
-m1 -> m2 -> m3(main*) 
-b1 -> b2(bugFix)
+m1 -> m2 -> m3(main) 
+b1 -> b2(bugFix*)
 
+git rebase main (main é o destino para onde vão os comits)
 
-git rebase bugFix
-
-m1 -> m2 -> m3 -> b2(main*) 
-
+m1 -> m2 -> m3(main) -> b1 -> b2(bugFix*) 
 
 
 # pega o branch bugFix e o coloca a frente do main, esse branch atual deixa de existir, passando a ser um nódulo a frente 
+# para fazer o main retomar a ponto do ramo faça :
 
+git checkout main 
+git rebase bugfix
+
+m1 -> m2 -> m3(main) -> b1 -> b2(bugFix) -> m3b2(main*)
 
 
 
