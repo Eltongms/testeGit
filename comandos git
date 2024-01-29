@@ -3,12 +3,26 @@ HEAD é um apontamento para o nódulo atualmente ativo (arquivos em que está tr
 
 O estado normal do git é 
 
+MOVENDO PELOS NODOS
+
 HEAD -> main -> C2. 
 Mas é possível soltar a cabeça (detached) com 
 
 git checkout C2
 ficando HEAD -> C2  e main -> C2
 
+para prender a cabeça basta dar um checkout em um dos branch
+git checkout main
+
+REFERÊNCIAS RELATIVAS
+
+git checkout main^    volta um nível
+git checkout main^^   volta dois nível
+
+git checkout HEAD^   volta o head uma vez
+
+
+git checktou main~3  volta o main 3 nodos
 
 
 
