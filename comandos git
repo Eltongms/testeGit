@@ -3,12 +3,26 @@ HEAD é um apontamento para o nódulo atualmente ativo (arquivos em que está tr
 
 O estado normal do git é 
 
+MOVENDO PELOS NODOS
+
 HEAD -> main -> C2. 
 Mas é possível soltar a cabeça (detached) com 
 
 git checkout C2
 ficando HEAD -> C2  e main -> C2
 
+para prender a cabeça basta dar um checkout em um dos branch
+git checkout main
+
+REFERÊNCIAS RELATIVAS
+
+git checkout main^    volta um nível
+git checkout main^^   volta dois nível
+
+git checkout HEAD^   volta o head uma vez
+
+
+git checktou main~3  volta o main 3 nodos
 
 
 
@@ -46,4 +60,77 @@ git branch --no-merged
 Descritivos 
 (main) é local
 (origin/main) é local onde o push foi atualizado pela ultima vez
+CHECKANDO CONFIGURAÇÃO 
+
+# para usar ssh o endereço precisa estar dessa forma
+git remote  -v
+origin	git@github.com:Eltongms/testeGit.git (fetch)
+origin	git@github.com:Eltongms/testeGit.git (push)
+
+# caso não esteja é preciso corrigier usando:
+git remote set-url --add origin git@github.com:Eltongms/testeGit.git
+
+
+
+
+
+CLONANDO
+
+git clone https://github.com/Eltongms/testeGit.git
+
+- Acessando branch remoto
+
+git branch -a
+git checkout -b nomebranch origin/nomebranch   # vai criar uma branch local baseado no branch remoto
+
+
+ENVIANDO DE VOLTA
+
+ 
+ git push origin reattach
+
+
+
+GIT MERGE
+
+m1 -> m2 -> m3(main*) 
+b1 -> b2(bugFix)
+
+git merge bugFix
+
+m1 -> m2 -> m3 -> m3b2(main*)
+b1 -> b2(bugFix)
+
+git checkout bugFix; git merge main;
+
+m1 -> m2 -> m3 -> mb4(main*)(bugFix)
+b1 -> b2
+ 
+
+# Cria um novo nódulo que mescla main a bugFix, possuindo ambos branch como ancestrais, o branch selecionado continua sendo main que passa a pontar para o novo nódulo, o branch bugFix permanece parado onde estava. 
+# Se for necessário corrigir basta selecionar bugFix e fazer merge com main, isto fará ambos branch aponterem para o novo nódulo.
+
+
+GIT REBASE
+
+m1 -> m2 -> m3(main) 
+b1 -> b2(bugFix*)
+
+git rebase main (main é o destino para onde vão os comits)
+
+m1 -> m2 -> m3(main) -> b1 -> b2(bugFix*) 
+
+
+# pega o branch bugFix e o coloca a frente do main, esse branch atual deixa de existir, passando a ser um nódulo a frente 
+# para fazer o main retomar a ponto do ramo faça :
+
+git checkout main 
+git rebase bugfix
+
+m1 -> m2 -> m3(main) -> b1 -> b2(bugFix) -> m3b2(main*)
+
+
+
+
+
 
