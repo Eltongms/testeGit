@@ -11,8 +11,11 @@ Mas é possível soltar a cabeça (detached) com
 git checkout C2
 ficando HEAD -> C2  e main -> C2
 
-para prender a cabeça basta dar um checkout em um dos branch
+Para prender a cabeça basta dar um checkout em um dos branch
 git checkout main
+
+Mudando o branch(ponteiro) para outro nodo
+git branch -f main a584s
 
 REFERÊNCIAS RELATIVAS
 
@@ -26,13 +29,13 @@ git checktou main~3  volta o main 3 nodos
 
 
 
-É possível mudar um ramo de lugar. O ramo é apenas um ponteiro que indica um nódulo especifico.
-
-git branch -f main HEAD^3
 
 
 
-Revertendo mudanças
+
+
+
+REVERTENDO MUDANÇAS
 
 quando local pode ser usado 
 git reset HEAD~1
@@ -49,7 +52,7 @@ git switch nomebranch   para tracar
 git switch -c nomebranch para criar.  
 
 
-Exibir 
+EXIBIR 
 
 git log --oneline (faz cada comiit ocupa uma linha) --all (exibe de todos os branch) --decorate (informa em qual branch está cada commit) --graph (faz um grafico)
 git branch -v (mostra os branch existentes e, onde estáo HEAD e os descritivos)
