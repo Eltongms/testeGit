@@ -74,6 +74,8 @@ origin	git@github.com:Eltongms/testeGit.git (push)
 git remote set-url --add origin git@github.com:Eltongms/testeGit.git
 
 
+git remote show # mostra os repositórios remotos configurados
+git remot show origin # mostra os detalhes de um repositório.
 
 
 
@@ -90,7 +92,8 @@ git checkout -b nomebranch origin/nomebranch   # vai criar uma branch local base
 ENVIANDO DE VOLTA
 
  
- git push origin reattach
+ git push # enviará apenas o branch atual
+ git push origin reattach # enviará um branch especifico
 
 
 
