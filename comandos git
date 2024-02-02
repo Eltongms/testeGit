@@ -55,12 +55,15 @@ https://www.freecodecamp.org/news/git-diff-command/
 --- b/file.js  # new version
 
 
-- refere-se ao arquivo antigo e + ao arquivo novo
+sinal de - refere-se ao arquivo antigo e + ao arquivo novo
 
 If the sets look like -3,4 +3,2, then:
 
 -3,4  visualização de 4 linhas a partir da linha 3 no arquivo velho
 +3,2  visualização de 2 linhas a partir da linha 2 no arquivo novo
+
+em verde linhas adicionadas
+em vermelho linhas excluidas
 
 
 
