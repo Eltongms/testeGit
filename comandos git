@@ -43,9 +43,24 @@ git reset HEAD file  # mesmo resultado de git restore --stage file
 
 COMPARANDO ARQUIVOS
 
+HEAD != WD
+git diff HEAD file
 
 WD != ST
 git diff
+
+HEAD != ST
+git diff --staged 
+git diff --cached
+
+
+
+
+
+Nos casos abaixo a ordem faz diferença
+git diff branch1 branch2
+git diff hash1 hash2
+
 
 
 ENDTENDENDO A SAÍDA DO DIFF
