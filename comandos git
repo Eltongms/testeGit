@@ -48,10 +48,19 @@ WD != ST
 git diff
 
 
-LENDO CABEÇALHO DIFF
+ENDTENDENDO A SAÍDA DO DIFF
+https://www.freecodecamp.org/news/git-diff-command/
 
--1,10  apartir da linha 1, 11 linhas foram subtraídas ou modificadas
-+1,15  apartir da linha 1, 15 linhas foram acrescentadas.
+--- a/file.js  # old version
+--- b/file.js  # new version
+
+
+- refere-se ao arquivo antigo e + ao arquivo novo
+
+If the sets look like -3,4 +3,2, then:
+
+-3,4  visualização de 4 linhas a partir da linha 3 no arquivo velho
++3,2  visualização de 2 linhas a partir da linha 2 no arquivo novo
 
 
 
