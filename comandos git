@@ -1,3 +1,49 @@
+https://stackoverflow.com/questions/65434544/whats-the-difference-between-git-rm-cached-git-restore-staged-and-gi
+
+TERMOS COMUMS
+
+STAGE AREA == INDEX == CACHE
+HEAD == COMMIT ATUAL
+
+
+
+ADICIONADO E EXCLUINDO ARQUIVOS
+
+
+
+git add file.js  # work directory -> stage   seja novo/atualização/deleção  em work directory
+
+git rm --cached file.js #  stage -> null     somente remove do stage, implica em ausencia deste arquivo no próximo commit caso ele não exista no HEAD
+
+
+- STAGE AREA
+
+git add file.js # adiciona arquivo ao stage
+git restore --stage file.js # copia para o stage a versão que está no HEAD, independente do que está no diretório.
+git rm --cached file.js # remove do stage e mantém no diretório
+
+- REPOSITÓRIO
+
+git rm file.js #apaga do sistema de arquivo e registra a deleção no stage
+git add <arquivo deletado pelo usário> # registra a deleação no stage
+
+caso tenha apagado pelo sistema de arquivos, o git status acusará DELETED EM VERMELHO. 
+para registar no git a deleção (por no stage a deleção) use git add ou git rm
+
+git add file.js # após deleção pele sistema de arquivo
+
+
+- DIRETÓRIO DE TRABALHO
+
+git rm -f file.js # apaga do stage e do diretório de tabalho
+
+
+
+
+
+
+
+
 
 HEAD é um apontamento para o nódulo atualmente ativo (arquivos em que está trabalhando).
 
