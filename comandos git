@@ -43,18 +43,24 @@ git reset HEAD file  # mesmo resultado de git restore --stage file
 
 COMPARANDO ARQUIVOS
 
-HEAD != WD
-git diff HEAD file
+1º HEAD = WD = STAGE     
+2º WD é alterado             usa o git diff (compara o WD com stage) OU usa o git diff HEAD (compara o WD com o HEAD)
+3º STAGE é igualado ao WD    usa o git diff --staged ou cached  (compara o STAGE com HEAD)
+
 
 WD != ST
 git diff
+
+HEAD != WD
+git diff HEAD file
 
 HEAD != ST
 git diff --staged 
 git diff --cached
 
 
-
+git log -p file  # exibe as difereças de cadas arquivos em todos os commit
+git log -p -<n> file  # exibe as difereças de cadas arquivos em n commit
 
 
 Nos casos abaixo a ordem faz diferença
