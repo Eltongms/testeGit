@@ -136,6 +136,12 @@ git checkout HEAD^   volta o head uma vez
 git checktou main~3  volta o main 3 nodos
 
 
+MANIPULANDO BRANCH
+
+git branch <nomebranch> # criar branch
+
+git push origin --delete <nome do ramo> # exclui branch remoto
+
 
 
 
