@@ -245,6 +245,16 @@ git rebase bugfix
 m1 -> m2 -> m3(main) -> b1 -> b2(bugFix) -> m3b2(main*)
 
 
+TAGs
+
+git tag -a v1.0 -m "minha versão 1.0"  # cria a etiqueta no commit atual
+$ git tag -a v0.1 c5d15de -m "versão beta" # cria em commit passado
+-a = annotated  (opcional mas recomendável)
+
+git tag  # retorna todas as etiquetas.
+
+git show v1.0  # mostra informações detalhadas desta etiqueta
+
 
 
 
