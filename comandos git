@@ -20,13 +20,16 @@ git add file.js  # seja novo/atualização/deleção  em work directory
 
 NULL => ST
 rm file.js
-git add file.js  # após deletado no faz o registro da deleção no git.
+git add file.js  # após deletado no  WD este comando faz o registro da deleção no ST e depois confirma com o commit git.
 
 WD => NULL e ST => NULL
 git rm file.js #apaga do sistema de arquivo e registra a deleção no stage
 
 ST => NULL
 git rm --cached file.js #  stage -> null    remove SOMENTE do stage, implica em ausencia deste arquivo no próximo commit caso ele não exista no HEAD
+
+H => WD
+git restore  file.js     copia do head para o work directory, descartando assim o que estiver no destino
 
 H => ST
 git restore --stage file.js # copia para o stage a versão que está no HEAD, independente do que está no diretório.
