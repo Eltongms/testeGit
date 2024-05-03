@@ -155,15 +155,23 @@ git push origin --delete <nome do ramo> # exclui branch remoto
 REVERTENDO MUDANÇAS
 
 
+
+Descartar tudo no work directory e stage area, retornado para o ultimo commit. Os arquivos untraked permanecem 
+git reset --hard HEAD
+
+
 Desfazer o ultimo commit mantendo os arquivos no work directory ou na Stage Area se já estiverem lá.
 git reset HEAD~1
 
-Descart tudo no work directory e stage area, retornado para o utltimo commit.
-git reset --hard HEAD
 
-quando remoto 
+Descartar untracked files
+git clean -fd
+
+Cria uma cópia do penultimo commit e o coloca a frente, tornando as altereção do ultimo sem efeito mas mantendo o histórico
 git revert HEAD
 
+
+CRIAR E MUDAR BRANCH
 
 para criar um branch usa-se
 git checkout -b nomebranch
