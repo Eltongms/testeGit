@@ -154,8 +154,12 @@ git push origin --delete <nome do ramo> # exclui branch remoto
 
 REVERTENDO MUDANÇAS
 
-quando local pode ser usado 
+
+Desfazer o ultimo commit mantendo os arquivos no work directory ou na Stage Area se já estiverem lá.
 git reset HEAD~1
+
+Descart tudo no work directory e stage area, retornado para o utltimo commit.
+git reset --hard HEAD
 
 quando remoto 
 git revert HEAD
