@@ -145,7 +145,7 @@ git branch <nomebranch> # criar branch
 
 git push origin --delete <nome do ramo> # exclui branch remoto
 
-
+git push --set-upstream origin novobreacn   # envia novo breanch para o remoto
 
 
 
@@ -154,6 +154,8 @@ git push origin --delete <nome do ramo> # exclui branch remoto
 
 REVERTENDO MUDANÇAS
 
+Descart as mudanção em único arquivo desde o ultimo commit
+git restore <file>
 
 
 Descartar tudo no work directory e stage area, retornado para o ultimo commit. Os arquivos untraked permanecem 
