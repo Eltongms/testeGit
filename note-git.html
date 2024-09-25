@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commands Reference</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            width: 80%;
+            max-width: 900px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        pre,
+        code {
+            background-color: #f9f9f9;
+            padding: 10px;
+            display: block;
+            margin: 10px 0;
+            border-left: 5px solid #333;
+        }
+
+        ul,
+        ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        p>code {
+            display: inline;
+            padding: 8px;
+        }
+
+        .explanation {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <h1>Common Terms in Official Manuals and Online</h1>
+        <ul>
+            <li> <strong>Stage Area</strong> == Index == Cache </li>
+            <li><strong>HEAD</strong> == Current Commit </li>
+        </ul>
+
+
+
+        <h2> Convention for This Manual</h2>
+        <ul>
+            <li><strong>ST</strong> = Stage Area</li>
+            <li><strong>WD</strong> = Work Directory</li>
+            <li><strong>H</strong> = HEAD</li>
+            <li><strong>C</strong> = Next Commit</li>
+            <li><strong>NULL</strong> = Deleted</li>
+        </ul>
+
+        <h2>Adding and Deleting Files</h2>
+
+        <strong>WD > ST</strong> for new/update/deletion in work directory<br>
+        <code>git add file.js </code>
+
+        <strong>ST > NULL</strong> removes only from staging, implying absence in the next commit if it doesn't
+        exist in HEAD<br>
+        <code>git rm --cached file.js</code>
+
+        <strong>H > WD</strong> restores from HEAD to WD, discarding changes<br>
+        <code>git restore file.js</code>
+
+        <strong>H > ST</strong> restores from HEAD to stage, ignoring WD changes<br>
+        <code>git restore --stage file.js</code>
+        <code>git reset HEAD file</code>
+
+        <strong>H > ST and H > WD</strong><br>
+        <code>git restore --stage --worktree</code>
+
+        <strong>H > WD</strong><br>
+        <code>git checkout file.js</code>
+
+
+
+
+
+
+        <h2>Comparing Files</h2>
+
+        <h3>H vs WD</h3>
+        <code>git diff</code>
+        <h3>H vs ST</h3>
+        <code>git diff --staged </code>
+        <code>git diff --cached</code>
+
+
+        <h3>WD vs ST</h3>
+        <code>git diff HEAD</code>
+
+
+
+
+
+
+        <h2>Logs and Diffs</h2>
+
+        <code>git log -p file</code> # shows differences in each commit
+        <code>git log -p -&lt;n&gt; file</code> # shows differences for the last n commits
+        Order matters in <code>git diff branch1 branch2</code> or <code>git diff hash1 hash2</code>
+
+
+        <h2>Understanding the Diff Output</h2>
+        <p><a href="https://www.freecodecamp.org/news/git-diff-command/">Reference</a></p>
+
+        <p><code>--- a/file.js</code> old version</p>
+        <p><code>+++ b/file.js</code> new version</p>
+
+        <code>@@ -3,4 +3,2 @@</code>
+        <div class="explanation">
+            <p><code>-3,4</code>: From the old file, starting at line 3 and spanning 4 lines.</p>
+            <p><code>+3,2</code>: From the new file, starting at line 3 and spanning 2 lines.</p>
+        </div>
+
+
+        <h2>Working Directory</h2>
+        <p>removes from stage and WD</p>
+        <code>git rm -f file.js</code>
+
+
+        <h2>Commit Options</h2>
+
+        <p>replaces previous commit with a new one</p>
+        <code>git commit --amend</code>
+        <p>shows replaced commits</p>
+        <code>git reflog</code>
+        <p>amends without changing the message</p>
+        <code>git commit --amend --no-edit</code>
+
+
+        <h2>Understanding HEAD</h2>
+        <p>HEAD is a reference to the currently active commit.</p>
+        <p>Git's normal state:</p>
+
+        <strong>HEAD -&gt; main -&gt; C2</strong>
+
+        <p>Detaching the head: HEAD leave of pointing to C2, while main still points to C2</p>
+        <code>git checkout C2</code>
+        <p>Reattaches head to a branch</p>
+        <code>git checkout main</code>
+
+        <p>Move the branch pointer to another node:</p>
+
+        <code>git branch -f main a584s</code>
+
+
+        <h2>Relative References</h2>
+        <p>move back one level</p>
+        <code>git checkout main^</code>
+        <p>move back two levels</p>
+        <code>git checkout main^^</code>
+        <p>move HEAD back one</p>
+        <code>git checkout HEAD^</code>
+        <p>move back 3 nodes</p>
+        <code>git checkout main~3</code>
+
+
+        <h2>Branch Manipulation</h2>
+
+        <code>git branch &lt;branchname&gt;</code> # create branch
+        <code>git push origin --delete &lt;branchname&gt;</code> # delete remote branch
+        <code>git push --set-upstream origin &lt;newbranch&gt;</code> # push a new branch to remote
+
+
+        <h2>Reverting Changes</h2>
+
+        Discard changes in a single file since the last commit: <code>git restore &lt;file&gt;</code>
+        Discard all changes in WD and ST, keeping untracked files: <code>git reset --hard HEAD</code>
+        Undo the last commit, keeping files in WD or ST: <code>git reset HEAD~1</code>
+        Discard untracked files: <code>git clean -fd</code>
+        Revert the last commit, creating a new one: <code>git revert HEAD</code>
+
+
+        <h2>Creating and Switching Branches</h2>
+
+        Create a branch: <code>git checkout -b &lt;branchname&gt;</code>
+        Switch branches (Git 2.23+): <code>git switch &lt;branchname&gt;</code>
+        Create and switch: <code>git switch -c &lt;branchname&gt;</code>
+
+
+        <h2>Viewing Git Information</h2>
+
+        <code>git log --oneline --all --decorate --graph</code> # shows a graph with all commits
+        <code>git branch -v</code> # shows existing branches
+        <code>git branch --merged</code> # shows merged branches
+        <code>git branch --no-merged</code> # shows unmerged branches
+        <code>git reflog</code> # shows all commit references
+
+
+        <h2>Configuring Git</h2>
+
+        <code>git init</code>
+        <code>git add .</code>
+        <code>git commit -m "start"</code>
+        <code>git remote add origin git@github.com:username/repository.git</code>
+        <code>git push origin main</code>
+
+
+        <h2>Checking Configuration</h2>
+
+        <code>git remote -v</code> # shows remote URLs
+        If not using SSH:
+        <code>git remote set-url --add origin git@github.com:username/repository.git</code>
+        <code>git remote show origin</code> # shows details of a specific remote repository
+
+
+        <h2>Cloning</h2>
+
+        <code>git clone https://github.com/username/repository.git</code>
+
+
+        <h2>Remote Branches</h2>
+
+        <code>git branch -a</code> # lists all branches
+        <code>git checkout -b &lt;branchname&gt; origin/&lt;branchname&gt;</code> # creates a local branch
+        from remote
+
+
+        <h2>Push to Remote</h2>
+
+        <code>git push</code> # pushes only the current branch
+        <code>git push origin &lt;branchname&gt;</code> # pushes a specific branch
+
+
+        <h2>Git Merge</h2>
+        <p>Example:</p>
+        <pre>
+m1 -> m2 -> m3 (main*)
+b1 -> b2 (bugFix)
+git merge bugFix
+
+Results in:
+m1 -> m2 -> m3 -> m3b2 (main*)
+b1 -> b2 (bugFix)
+        </pre>
+
+        <p>Performing merge the other way:</p>
+        <pre>
+git checkout bugFix; git merge main;
+
+m1 -> m2 -> m3 -> mb4 (main*) (bugFix)
+b1 -> b2
+        </pre>
+
+        <h2>Git Rebase</h2>
+        <p>Example:</p>
+        <pre>
+m1 -> m2 -> m3 (main)
+b1 -> b2 (bugFix*)
+
+git rebase main
+
+Results in:
+m1 -> m2 -> m3 (main) -> b1 -> b2 (bugFix*)
+        </pre>
+
+        <h2>Tags</h2>
+
+        <code>git tag -a v1.0 -m "my version 1.0"</code> # creates a tag at the current commit
+        <code>git tag -a v0.1 c5d15de -m "beta version"</code> # creates a tag in a past commit
+        <code>git tag</code> # lists all tags
+        <code>git show v1.0</code> # shows detailed information of a tag
+
+    </div>
+
+</body>
+
+</html>
