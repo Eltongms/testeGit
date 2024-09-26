@@ -184,11 +184,19 @@
         <code>git checkout main~3</code>
 
 
-        <h2>Branch Manipulation</h2>
+        <h2>Branch</h2>      
 
-        <code>git branch &lt;branchname&gt;</code> # create branch
-        <code>git push origin --delete &lt;branchname&gt;</code> # delete remote branch
-        <code>git push --set-upstream origin &lt;newbranch&gt;</code> # push a new branch to remote
+        <p>show all branch, what is selected. -v show comments</p>
+        <code>git branch -v</code>
+        <p>para criar um branch usa-se</p>
+        <code>git switch -c nomebranch para criar.  #NOVO 2.23</code>
+        <code>git branch &lt;branchname&gt;</code>
+        <p>trocar de branch</p>
+        <code>git switch nomebranch </code>          
+        <p>push a new branch to remote</p>
+        <code>git push --set-upstream origin &lt;newbranch&gt;</code>
+        <p>delete remote branch</p>
+        <code>git push origin --delete &lt;branchname&gt;</code>
 
 
         <h2>Reverting Changes</h2>
@@ -226,11 +234,28 @@
 
 
         <h2>Checking Configuration</h2>
-
-        <code>git remote -v</code> # shows remote URLs
-        check if the remote is configured with correct ssh repository, if not use the commando below
+        
+        <p>Shows remote URL. Check </p>
+        <code>git remote -v</code>
+        <p>if the remote is configured with correct ssh repository, if not use the commando below</p>
         <code>git remote set-url --add origin git@github.com:username/repository.git</code>
-        <code>git remote show origin</code> # shows details of a specific remote repository
+        <p>shows details of a specific remote repository</p>
+        <pre>
+        git remote show origin
+        * remote origin
+            Fetch URL: git@github.com:Eltongms/testeGit.git
+            Push  URL: git@github.com:Eltongms/testeGit.git
+            HEAD branch: main
+            Remote branch:
+                main tracked
+            Local branch configured for 'git pull':
+                main merges with remote main
+            Local ref configured for 'git push':
+                main pushes to main (up to date)
+        </pre>
+
+
+        
 
 
         <h2>Cloning</h2>
