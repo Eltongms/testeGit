@@ -173,14 +173,20 @@ Cria uma cópia do penultimo commit e o coloca a frente, tornando as altereção
 git revert HEAD
 
 
-CRIAR E MUDAR BRANCH
+BRANCH
 
 para criar um branch usa-se
-git checkout -b nomebranch
 
-a partir do git 2.23 pode usar o comando
-git switch nomebranch   para tracar
-git switch -c nomebranch para criar.  
+git checkout -b nomebranch
+git switch -c nomebranch para criar.  #NOVO 2.23
+
+show all branch, what is selected. -v show comments
+
+# trocar de branch
+git switch nomebranch 
+
+
+
 
 
 EXIBIR 
