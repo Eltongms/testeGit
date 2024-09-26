@@ -228,7 +228,7 @@
         <h2>Checking Configuration</h2>
 
         <code>git remote -v</code> # shows remote URLs
-        If not using SSH:
+        check if the remote is configured with correct ssh repository, if not use the commando below
         <code>git remote set-url --add origin git@github.com:username/repository.git</code>
         <code>git remote show origin</code> # shows details of a specific remote repository
 
@@ -289,6 +289,17 @@ m1 -> m2 -> m3 (main) -> b1 -> b2 (bugFix*)
         <code>git tag -a v0.1 c5d15de -m "beta version"</code> # creates a tag in a past commit
         <code>git tag</code> # lists all tags
         <code>git show v1.0</code> # shows detailed information of a tag
+
+
+        <h2>Configuring SSH on Windows</h2>
+
+        <p>Open Settings, select System, then select Optional Features (also referred to as Manage optional features).
+
+            In the list, select OpenSSH Client</p>
+
+        <p>check if ssh key are wihtin of c:/users/user/.ssh/id_rsa and id_rsa.pub</p>
+
+        <p>for Configuring ssh on github, search for <strong>SSH and GPG keys</strong> add the public key </p>
 
     </div>
 
