@@ -27,8 +27,7 @@
             max-height: 90vh;
         }
 
-        h1,
-        h2 {
+        h1,h2,h3 {
             text-align: center;
         }
 
@@ -198,6 +197,29 @@
         <p>delete remote branch</p>
         <code>git push origin --delete &lt;branchname&gt;</code>
 
+        <h3>Creating and Switching Branches</h3>
+
+        Create a branch: <code>git checkout -b &lt;branchname&gt;</code>
+        Switch branches (Git 2.23+): <code>git switch &lt;branchname&gt;</code>
+        Create and switch: <code>git switch -c &lt;branchname&gt;</code>
+
+        <h3>Remote Branches</h3>
+
+        <p>lists all branches</p>
+        <code>git branch -a</code> 
+        <p>creates a local branch from remote</p>
+        <code>git checkout -b branchname origin/branchname</code>
+        <code>git switch -c branchname origin/brachname </code>
+
+        
+
+
+        <h3>Push to Remote</h3>
+
+        <p>pushes only the current branch</p>
+        <code>git push</code> 
+        <p>pushes a specific branch</p>
+        <code>git push origin &lt;branchname&gt;</code>
 
         <h2>Reverting Changes</h2>
 
@@ -208,11 +230,6 @@
         Revert the last commit, creating a new one: <code>git revert HEAD</code>
 
 
-        <h2>Creating and Switching Branches</h2>
-
-        Create a branch: <code>git checkout -b &lt;branchname&gt;</code>
-        Switch branches (Git 2.23+): <code>git switch &lt;branchname&gt;</code>
-        Create and switch: <code>git switch -c &lt;branchname&gt;</code>
 
 
         <h2>Viewing Git Information</h2>
@@ -262,18 +279,6 @@
 
         <code>git clone https://github.com/username/repository.git</code>
 
-
-        <h2>Remote Branches</h2>
-
-        <code>git branch -a</code> # lists all branches
-        <code>git checkout -b &lt;branchname&gt; origin/&lt;branchname&gt;</code> # creates a local branch
-        from remote
-
-
-        <h2>Push to Remote</h2>
-
-        <code>git push</code> # pushes only the current branch
-        <code>git push origin &lt;branchname&gt;</code> # pushes a specific branch
 
 
         <h2>Git Merge</h2>
