@@ -223,11 +223,18 @@
 
         <h2>Reverting Changes</h2>
 
-        Discard changes in a single file since the last commit: <code>git restore &lt;file&gt;</code>
-        Discard all changes in WD and ST, keeping untracked files: <code>git reset --hard HEAD</code>
-        Undo the last commit, keeping files in WD or ST: <code>git reset HEAD~1</code>
-        Discard untracked files: <code>git clean -fd</code>
-        Revert the last commit, creating a new one: <code>git revert HEAD</code>
+        <p>Discard changes in a single file since the last commit:</p>
+         <code>git restore &lt;file&gt;</code>
+        <p>Discard all changes in WD and ST, keeping untracked files: </p>
+        <code>git reset --hard HEAD</code>
+        <p>Undo the last commit, keeping files in WD or ST: </p>
+        <code>git reset HEAD~1</code>
+        <p>Discard untracked files: </p>
+        <code>git clean -fd</code>
+        <p>Revert the last commit, creating a new one: </p>
+        <code>git revert HEAD</code>
+        <p>restore a file from stage to work dir</p>
+        <code>git restore --source=HEAD --worktree file</code>
 
 
 
