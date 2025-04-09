@@ -33,11 +33,11 @@
 
         pre,
         code {
-            background-color: #f9f9f9;
+            background-color: #cac5c5;
             padding: 10px;
             display: block;
             margin: 10px 0;
-            border-left: 5px solid #333;
+            /* border-left: 5px solid #333; */
         }
 
         ul,
@@ -183,42 +183,67 @@
         <code>git checkout main~3</code>
 
 
-        <h2>Branch</h2>      
+        <h2>Git Branch</h2>
 
-        <p>show all branch, what is selected. -v show comments</p>
-        <code>git branch -v</code>
-        <p>para criar um branch usa-se</p>
-        <code>git switch -c nomebranch para criar.  #NOVO 2.23</code>
-        <code>git branch &lt;branchname&gt;</code>
-        <p>trocar de branch</p>
-        <code>git switch nomebranch </code>          
-        <p>push a new branch to remote</p>
-        <code>git push --set-upstream origin &lt;newbranch&gt;</code>
-        <p>delete remote branch</p>
-        <code>git push origin --delete &lt;branchname&gt;</code>
-
-        <h3>Creating and Switching Branches</h3>
-
-        Create a branch: <code>git checkout -b &lt;branchname&gt;</code>
-        Switch branches (Git 2.23+): <code>git switch &lt;branchname&gt;</code>
-        Create and switch: <code>git switch -c &lt;branchname&gt;</code>
-
-        <h3>Remote Branches</h3>
-
-        <p>lists all branches</p>
-        <code>git branch -a</code> 
-        <p>creates a local branch from remote</p>
-        <code>git checkout -b branchname origin/branchname</code>
-        <code>git switch -c branchname origin/brachname </code>
-
+        <!-- Viewing and Switching Branches -->
+        <h3>Viewing and Switching Branches</h3>
         
-
-
-        <h3>Push to Remote</h3>
-
-        <p>pushes only the current branch</p>
+        <h4>Show Branches</h4>
+        <p>Show all local branches. <code>-v</code> shows the last commit message:</p>
+        <code>git branch -v</code>
+        
+        <p>Show all branches (local and remote):</p>
+        <code>git branch -a</code>
+        
+        <h4>Switching Branches</h4>
+        <p>Switch to an existing branch:</p>
+        <code>git switch &lt;branch-name&gt;</code>
+        
+        <p>Create and switch to a new branch (Git 2.23+):</p>
+        <code>git switch -c &lt;branch-name&gt;</code>
+        
+        <p>Alternative method:</p>
+        <code>git checkout -b &lt;branch-name&gt;</code>
+        
+        <!-- Local Branch Section -->
+        <h3>Local Branch Operations</h3>
+        
+        <h4>Creating Branches</h4>
+        <p>Create a new branch (classic way):</p>
+        <code>git branch &lt;branch-name&gt;</code>
+        
+        <h4>Renaming Branches</h4>
+        <p>Rename the current branch (force if needed):</p>
+        <code>git branch -M &lt;new-name&gt;</code>
+        
+        <p><strong>Example:</strong> Rename current branch to <code>main</code></p>
+        <code>git branch -M main</code>
+        
+        <h4>Deleting Branches</h4>
+        <p>Delete a local branch (only if already merged):</p>
+        <code>git branch -d &lt;branch-name&gt;</code>
+        
+        <p>Force delete a local branch (even if not merged):</p>
+        <code>git branch -D &lt;branch-name&gt;</code>
+        
+        <!-- Remote Branch Section -->
+        <h3>Remote Branch Operations</h3>
+        
+        <h4>Creating/Tracking Remote Branches</h4>
+        <p>Create a local branch from a remote one:</p>
+        <code>git switch -c &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>
+        
+        <h4>Pushing Branches</h4>
+        <p>Push a new branch to the remote and set upstream:</p>
+        <code>git push --set-upstream origin &lt;branch-name&gt;</code>
+        
+        <h4>Deleting Remote Branches</h4>
+        <p>Delete a remote branch:</p>
+        <code>git push origin --delete &lt;branch-name&gt;</code>
+                      
+        <h4>Pushes only the current branch</h4>
         <code>git push</code> 
-        <p>pushes a specific branch</p>
+        <h4>Pushes a specific branch</h4>
         <code>git push origin &lt;branchname&gt;</code>
 
         <h2>Reverting Changes</h2>
